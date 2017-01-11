@@ -11,3 +11,5 @@ git clone --separate-git-dir=$HOME/.dotfiles /path/to/repo $HOME/dotfiles-tmp
 cp ~/dotfiles-tmp/.gitmodules ~  # If you use Git submodules
 rm -r ~/dotfiles-tmp/
 ```
+
+https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
