@@ -1,0 +1,9 @@
+bind generic + !git commit --amend
+bind main B !git rebase -i %(commit)
+#bind stage 1 stage-update-line 
+bind main i :toggle commit-order
+bind main a :set main-options = --branches --remotes --tags
+bind main m :set main-options = ""
+bind diff <Lt> :toggle split-view-width +.05
+bind diff > :toggle split-view-width -.05
+bind main S :set main-options = -S%(prompt)
