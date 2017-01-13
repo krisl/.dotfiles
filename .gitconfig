@@ -1,0 +1,47 @@
+[user]
+	name = Aaron Lipinski
+	email = kris.lipinski@gmail.com
+[core]
+	excludesfile = /Users/aaronlipinski/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = true
+
+[alias]
+        #tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	tree = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' 
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	alias = "!git config -l | grep alias | cut -c 7-"
+	fgrep = "!git ls-files | grep -i"
+   gg = grep --break --heading -n
+	conflicts = diff --name-only --diff-filter=U
+   edit-unmerged = "!$EDITOR `git diff --name-only --diff-filter=U`"
+   add-unmerged = "!git add `git diff --name-only --diff-filter=U`"
+  xrecent = "for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short) %(committerdate:relative)'"
+  yrecent = "for-each-ref --count=10 --sort=-committerdate refs/heads/"
+  yyrecent = "for-each-ref --sort=-committerdate refs/heads/ --format="$format" | column -ts '|'  | less --tabs=4 -RFX"
+  files = "!git diff-tree --no-commit-id --name-only -r"
+  mush = push --force-with-lease
+[color]
+	ui = true
+[push]
+	default = current
+[merge]
+	conflictstyle = diff3
+	tool = diffconflicts
+[mergetool "diffconflicts"]
+	cmd = diffconflicts vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
+	keepBackup = false
+[rebase]
+	autosquash = true
+[rerere]
+	enabled = true
+[diff]
+	compactionHeuristic = true
+	indentHeuristic = true
