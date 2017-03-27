@@ -43,5 +43,8 @@
 [rerere]
 	enabled = true
 [diff]
-	compactionHeuristic = true
+	# compactionHeuristic = true
 	indentHeuristic = true
+	# algorithm = minimal
+[branch]
+	autosetuprebase = always
