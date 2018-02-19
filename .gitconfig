@@ -3,6 +3,8 @@
 	email = kris.lipinski@gmail.com
 [core]
 	excludesfile = /Users/aaronlipinski/.gitignore_global
+	pager = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight | less
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -25,6 +27,7 @@
   xrecent = "for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(refname:short) %(committerdate:relative)'"
   yrecent = "for-each-ref --count=10 --sort=-committerdate refs/heads/"
   yyrecent = "for-each-ref --sort=-committerdate refs/heads/ --format="$format" | column -ts '|'  | less --tabs=4 -RFX"
+  freshness = "!f() { git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:cyan)%(refname:short)%(color:reset) | %(committerdate:relative)%(color:reset) | %(subject)' | column -s '|' -t; }; f"
   files = "!git diff-tree --no-commit-id --name-only -r"
   mush = push --force-with-lease
 [color]

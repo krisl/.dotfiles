@@ -3,7 +3,12 @@ bind main B !git rebase -i %(commit)
 #bind stage 1 stage-update-line 
 bind main i :toggle commit-order
 bind main a :set main-options = --branches --remotes --tags
+bind main M :set main-options = %(commit)
 bind main m :set main-options = ""
 bind diff <Lt> :toggle split-view-width +.05
 bind diff > :toggle split-view-width -.05
+bind stage <Lt> :toggle split-view-width +.05
+bind stage > :toggle split-view-width -.05
 bind main S :set main-options = -S%(prompt)
+
+set diff-highlight = /usr/local/share/git-core/contrib/diff-highlight/diff-highlight
